@@ -3,7 +3,6 @@ package com.disruption.activitytest
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
@@ -46,7 +45,6 @@ class MainActivity : AppCompatActivity() {
      * @param view The view (Button) that was clicked.
      */
     fun launchSecondActivity(view: View?) {
-        Log.d(LOG_TAG, "Button clicked!")
         val intent = Intent(this, SecondActivity::class.java)
         val message = mMessageEditText.text.toString()
         intent.putExtra(EXTRA_MESSAGE, message)
