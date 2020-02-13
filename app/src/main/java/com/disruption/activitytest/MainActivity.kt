@@ -16,11 +16,11 @@ import androidx.appcompat.app.AppCompatActivity
  */
 class MainActivity : AppCompatActivity() {
     // EditText view for the message
-    private var mMessageEditText: EditText? = null
+    private lateinit var mMessageEditText: EditText
     // TextView for the reply header
-    private var mReplyHeadTextView: TextView? = null
+    private lateinit var mReplyHeadTextView: TextView
     // TextView for the reply body
-    private var mReplyTextView: TextView? = null
+    private lateinit var mReplyTextView: TextView
 
     /**
      * Initializes the activity.
@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
     fun launchSecondActivity(view: View?) {
         Log.d(LOG_TAG, "Button clicked!")
         val intent = Intent(this, SecondActivity::class.java)
-        val message = mMessageEditText!!.text.toString()
+        val message = mMessageEditText.text.toString()
         intent.putExtra(EXTRA_MESSAGE, message)
         startActivityForResult(intent, TEXT_REQUEST)
     }
@@ -71,10 +71,10 @@ class MainActivity : AppCompatActivity() {
             if (resultCode == Activity.RESULT_OK) {
                 val reply = data!!.getStringExtra(SecondActivity.EXTRA_REPLY)
                 // Make the reply head visible.
-                mReplyHeadTextView!!.visibility = View.VISIBLE
+                mReplyHeadTextView.visibility = View.VISIBLE
                 // Set the reply and make it visible.
-                mReplyTextView!!.text = reply
-                mReplyTextView!!.visibility = View.VISIBLE
+                mReplyTextView.text = reply
+                mReplyTextView.visibility = View.VISIBLE
             }
         }
     }
