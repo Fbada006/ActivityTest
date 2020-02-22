@@ -22,7 +22,7 @@ class MainActivityTest {
     val mActivityRule = ActivityTestRule(MainActivity::class.java)
 
     @Before
-    fun afterActivityLaunched() {
+    fun beforeActivityLaunched() {
         Intents.init()
     }
 
